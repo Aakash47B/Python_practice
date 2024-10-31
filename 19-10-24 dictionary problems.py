@@ -23,9 +23,17 @@ Given a dictionary where the values are unique, write a program to reverse the d
 Input Example:{'apple': 1, 'banana': 2, 'mango': 3} 
 Expected Output:{1: 'apple', 2: 'banana', 3: 'mango'}"""
 
-# basket = {'apple': 1, 'banana': 2, 'mango': 3}
-# basket = {value: key for key, value in basket.items()}
-# print(basket)
+# basket = {'apple': 1, 'banana': 2, 'mango': 3,'orange': 1}
+# # basket = {value: key for key, value in basket.items()}
+# # print(basket)
+
+# reverse_dict = {}
+# for key,value in basket.items():
+#    if value not in reverse_dict:
+#       reverse_dict.update({value:key})
+#    else:
+#       reverse_dict[value] = [reverse_dict[value], key]      
+# print(reverse_dict)
 
 """Grouping Students by Grade
 Given a list of students and their grades, write a program to group the students by their grades using a dictionary.
@@ -40,10 +48,10 @@ Expected Output:
 {'A': ['Alice', 'Charlie'], 'B': ['Bob'], 'C': ['David']}"""
 
 # students = [
-#    {"name": "Alice", "grade": "A"},
-#    {"name": "Bob", "grade": "B"},
-#    {"name": "Charlie", "grade": "A"},
-#    {"name": "David", "grade": "C"}
+#    {"name": "Alice", "grade": 80},
+#    {"name": "Bob", "grade": 85},
+#    {"name": "Charlie", "grade": 90},
+#    {"name": "David", "grade": 95}
 # ]
 
 # class_grades = {}
@@ -53,16 +61,27 @@ Expected Output:
 
 #    if grade not in class_grades:
 #       class_grades.update({grade:[]})
-#    class_grades[grade].append(name)
+#    class_grades.get(grade).append(name)
+
 
 # print(class_grades)   
+# scores = {'Alice': 85, 'Bob': 90, 'Charlie': 78, 'David': 92}
+
+# # Define the threshold value
+# threshold = int(input("Enter the threshold score: "))
+
+# # Filter the dictionary based on the threshold
+# filtered_scores = {name: score for name, score in scores.items() if score > threshold}
+
+# print(filtered_scores)
+
 
 """Sort a Dictionary by Values
 Write a program that sorts a dictionary by its values in descending order.
 Input Example: {'Alice': 85, 'Bob': 90, 'Charlie': 78, 'David': 92} 
 Expected Output: {'David': 92, 'Bob': 90, 'Alice': 85, 'Charlie': 78}"""
 
-# students = {'Alice': 85, 'Bob': 90, 'Charlie': 78, 'David': 92}
+# students = {'Alice': 85, 'Bob': 90, 'Charlie': 78, 'David': 92, 'Davik': 85}
 # marks = sorted(set(students.values()),reverse=True)
 # sorted_marks = {}
 # for mark in marks:
@@ -71,13 +90,20 @@ Expected Output: {'David': 92, 'Bob': 90, 'Alice': 85, 'Charlie': 78}"""
 #          sorted_marks.update({student:mark})
 # print(sorted_marks)
 
+
 """Word Lengths
 Write a program that takes a list of words and creates a dictionary where the keys are the words and the values are their lengths.
 Input Example: ["apple", "banana", "mango"]
 Expected Output: {'apple': 5, 'banana': 6, 'mango': 5}"""
 
 # inputValue = ["apple", "banana", "mango"]
-# word_length = {word: len(word) for word in inputValue}
+
+# # word_length = {word: len(word) for word in inputValue}
+
+# word_length ={}
+# for word in inputValue:
+#    word_length.update({word:len(word)})
+
 # print(word_length)
 
 """Find Students with a Specific Grade
@@ -95,3 +121,54 @@ Charlie"""
 #    if grade == grades:
 #       print(name)
    
+
+# students = {
+#     "Alice": {"Math": 85, "English": 78},
+#     "Bob": {"Math": 90, "English": 80},
+#     "Charlie": {"Math": 70, "English": 65}
+# }
+
+# students["Alice"]["Science"]=88
+# students["Bob"]["Science"]=78
+# students["Charlie"]["Science"]=65
+
+# print(students)
+
+# # Calculate average score for each student
+# for student, subjects in students.items():
+#     avg_score = sum(subjects.values()) / len(subjects)
+#     print(f"{student}'s average score: {avg_score:.2f}")
+
+
+# def flatten_dict(d, parent_key='', sep='.'):
+#     items = {}
+#     for key, value in d.items():
+#         new_key = f"{parent_key}{sep}{key}" if parent_key else key
+#         if isinstance(value, dict):
+#             items.update(flatten_dict(value, new_key, sep=sep))
+#         else:
+#             items[new_key] = value
+#     return items
+
+# data = {
+#     "name": "Alice",
+#     "details": {"age": 25, "address": {"city": "New York", "zip": "10001"}}
+# }
+
+# print(flatten_dict(data))
+
+
+
+# keys = ['name', 'age', 'city']
+# values = ['Alice', 25, 'New York']
+
+# result = dict(zip(keys, values))
+# print(result)
+
+
+# scores = {"Alice": 85, "Bob": 92, "Charlie": 85, "David": 93}
+# max_score = max(scores.values())
+# print(max_score)
+
+# top_scores = [name for name, score in scores.items() if score == max_score]
+# print(top_scores)
